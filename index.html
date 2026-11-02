@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#111113" />
+    <style>
+      html {
+        color-scheme: dark;
+        background: #111113;
+        color: #edeef0;
+      }
+      html[data-theme="light"] {
+        color-scheme: light;
+        background: #f6f7f9;
+        color: #1c2026;
+      }
+    </style>
+    <script>
+      try {
+        if (localStorage.getItem("pogocounter-theme") === "light") {
+          document.documentElement.dataset.theme = "light";
+          document.querySelector('meta[name="theme-color"]').content =
+            "#f6f7f9";
+        }
+      } catch {}
+    </script>
+    <meta
+      name="description"
+      content="Generate Pokémon GO raid counter searches with attack, defense, and inventory filters."
+    />
+    <title>PoGO Counter Search String Builder</title>
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="./icons/icon-180.png" />
+  </head>
+  <body>
+    <main>
+      <div class="tool-heading">
+        <h1>PoGO Counter Search String Builder</h1>
+        <div class="tool-actions">
+          <button id="reset-filters" class="text-button" type="button">
+            Reset filters
+          </button>
+          <button
+            id="theme-toggle"
+            class="icon-button"
+            type="button"
+            aria-label="Light mode"
+            aria-pressed="false"
+            title="Switch to light mode"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.6"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path
+                class="bulb"
+                d="M8.5 15.5c0-2-3-2.8-3-6.5a6.5 6.5 0 0 1 13 0c0 3.7-3 4.5-3 6.5Z"
+              />
+              <path d="M9 18.5h6M10 21h4M12 12v3.5M9.5 10l2.5 2 2.5-2" />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <p id="fatal-error" class="error" role="alert" hidden></p>
+      <p id="loading-data" class="field-hint" role="status">
+        Loading Pokémon data…
+      </p>
+
+      <div id="builder" class="builder" hidden>
+        <div class="controls-column">
+          <section class="panel boss-section" aria-label="Raid boss">
+            <div class="boss-picker" id="boss-picker">
+              <label for="boss-search">
+                <svg
+                  class="search-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                  aria-hidden="true"
+                >
+                  <circle cx="10.5" cy="10.5" r="6.5" />
+                  <path d="m16 16 5 5" />
+                </svg>
+                Raid boss
+              </label>
+              <div id="selected-boss" class="search-field boss-search-field">
+                <div id="boss-preview" class="boss-preview" aria-hidden="true"></div>
+                <div class="boss-details">
+                  <div class="boss-input-row">
+                    <h2 id="boss-name" aria-hidden="true"></h2>
+                    <input
+                  id="boss-search"
+                  type="text"
+                  role="combobox"
+                  aria-autocomplete="list"
+                  aria-expanded="false"
+                  aria-controls="boss-options"
+                  aria-describedby="boss-meta"
+                  placeholder="Search Pokémon or form"
+                  autocomplete="off"
+                  spellcheck="false"
+                />
+                  </div>
+                  <div id="boss-meta" class="boss-meta">
+                    <span id="boss-form"></span><span id="boss-number"></span>
+                    <div id="boss-types" class="type-list"></div>
+                  </div>
+                </div>
+                <button
+                  id="clear-search"
+                  type="button"
+                  aria-label="Clear boss search"
+                >
+                  ×
+                </button>
+              </div>
+              <div id="boss-dropdown" class="boss-dropdown" hidden>
+                <div
+                  id="boss-options"
+                  role="listbox"
+                  aria-label="Pokémon and forms"
+                ></div>
+                <p id="search-status" class="field-hint" role="status"></p>
+              </div>
+            </div>
+          </section>
+
+          <section class="panel offense-section" aria-label="Attack filters">
+            <fieldset class="attack-filter">
+              <legend>Fast attack <span>Slot 1</span></legend>
+              <div class="filter-options">
+                <label class="filter-option"
+                  ><input type="radio" name="fast" value="any" /><span
+                    >Any</span
+                  ></label
+                >
+                <label class="filter-option"
+                  ><input type="radio" name="fast" value="not-resisted" /><span
+                    >Not resisted <small>≥1×</small></span
+                  ></label
+                >
+                <label class="filter-option"
+                  ><input
+                    type="radio"
+                    name="fast"
+                    value="super-effective"
+                    checked
+                  /><span>Super effective <small>&gt;1×</small></span></label
+                >
+              </div>
+              <label id="fast-refinement" class="check-option attack-refinement" hidden
+                title="This boss has a double weakness. Limit attacks to types that deal 2.56× damage."
+                ><span class="refinement-notice" aria-hidden="true">!</span
+                ><span>Only double super effective <small>2.56×</small></span
+                ><input id="fast-double-effective" type="checkbox"
+              /></label>
+            </fieldset>
+            <fieldset class="attack-filter">
+              <legend>Charged attack <span>Either slot 2 or 3</span></legend>
+              <div class="filter-options">
+                <label class="filter-option"
+                  ><input type="radio" name="charged" value="any" /><span
+                    >Any</span
+                  ></label
+                >
+                <label class="filter-option"
+                  ><input
+                    type="radio"
+                    name="charged"
+                    value="not-resisted"
+                  /><span>Not resisted <small>≥1×</small></span></label
+                >
+                <label class="filter-option"
+                  ><input
+                    type="radio"
+                    name="charged"
+                    value="super-effective"
+                    checked
+                  /><span>Super effective <small>&gt;1×</small></span></label
+                >
+              </div>
+              <label
+                id="charged-refinement"
+                class="check-option attack-refinement"
+                hidden
+                title="This boss has a double weakness. Limit attacks to types that deal 2.56× damage."
+                ><span class="refinement-notice" aria-hidden="true">!</span
+                ><span>Only double super effective <small>2.56×</small></span
+                ><input id="charged-double-effective" type="checkbox"
+              /></label>
+            </fieldset>
+          </section>
+
+          <section
+            class="panel inventory-section"
+            id="inventory-panel"
+            aria-labelledby="inventory-heading"
+          >
+            <h2 id="inventory-heading" class="sr-only">Inventory filters</h2>
+            <div id="inventory-controls">
+              <div class="control-grid">
+                <label for="max-filter"
+                  >Dynamax / Gigantamax<select id="max-filter" aria-describedby="max-filter-hint">
+                    <option value="any">Include all</option>
+                    <option value="only">Only include</option>
+                    <option value="exclude">Exclude both</option>
+                  </select></label
+                >
+                <label for="shadow-filter"
+                  >Shadow Pokémon<select id="shadow-filter">
+                    <option value="any">Include all</option>
+                    <option value="only">Shadow only</option>
+                    <option value="exclude">Exclude Shadow</option>
+                  </select></label
+                >
+                <label for="min-cp"
+                  >Minimum CP<input
+                    id="min-cp"
+                    type="text"
+                    inputmode="numeric"
+                    pattern="[0-9]*"
+                    maxlength="5"
+                    placeholder="Any"
+                /></label>
+                <label for="min-hp"
+                  >Minimum HP<input
+                    id="min-hp"
+                    type="text"
+                    inputmode="numeric"
+                    pattern="[0-9]*"
+                    maxlength="5"
+                    placeholder="Any"
+                /></label>
+              </div>
+              <p id="max-filter-hint" class="field-hint" hidden>Attack filters check regular moves, not Max Moves.</p>
+            </div>
+          </section>
+
+          <section
+            class="panel defense-section defense-disabled"
+            id="defense-panel"
+            aria-labelledby="defense-heading"
+          >
+            <div class="panel-heading">
+              <input id="enable-defense" type="checkbox" aria-labelledby="defense-heading" />
+              <h2 id="defense-heading">
+                <label for="enable-defense">Enable Pokémon resistance</label>
+              </h2>
+              <div class="help-anchor">
+                <button
+                  id="defense-info"
+                  class="info-button"
+                  type="button"
+                  aria-label="About Pokémon resistance filtering"
+                  aria-expanded="false"
+                  aria-controls="defense-help"
+                >
+                  i
+                </button>
+                <div id="defense-help" class="info-popover" role="note" hidden>
+                  <p>
+                    A standard raid boss has a fast attack and a charged attack
+                    chosen for that raid. Its moves stay the same throughout the
+                    raid.
+                  </p>
+                  <p>
+                    Scout the battle to identify them. The game’s recommended
+                    lineup can offer clues, but doesn’t confirm the moves.
+                  </p>
+                  <p>
+                    Select the attacks you want to defend against. If you’re
+                    unsure, use All to cover the listed possibilities.
+                  </p>
+                  <p>Not weak allows neutral damage (≤1×). Resist requires reduced damage (&lt;1×) from every selected move type.</p>
+                </div>
+              </div>
+              <fieldset id="defense-requirement" class="defense-requirement" disabled>
+                <legend class="sr-only">Resistance requirement</legend>
+                <label class="defense-choice" title="Allow neutral or resisted damage (≤1×)">
+                  <input type="radio" name="resistance" value="not-weak" checked />Not weak
+                </label>
+                <label class="defense-choice" title="Require reduced damage from every selected move type (&lt;1×)">
+                  <input type="radio" name="resistance" value="resist" />Resist
+                </label>
+              </fieldset>
+            </div>
+            <p id="move-selection-hint" class="field-hint">
+              Select enemy Pokémon moves to resist.
+            </p>
+            <fieldset id="defense-fields" disabled>
+              <legend class="sr-only">Boss move selection</legend>
+              <div class="move-groups">
+                <fieldset class="move-group">
+                  <legend>
+                    Boss fast attacks
+                    <span class="move-actions"
+                      ><button
+                        type="button"
+                        data-move-group="fast"
+                        data-selection="all"
+                        aria-label="Select all boss fast attacks"
+                      >
+                        All</button
+                      ><button
+                        type="button"
+                        data-move-group="fast"
+                        data-selection="none"
+                        aria-label="Clear boss fast attacks"
+                      >
+                        None
+                      </button></span
+                    >
+                  </legend>
+                  <div id="boss-fast-moves"></div>
+                </fieldset>
+                <fieldset class="move-group">
+                  <legend>
+                    Boss charged attacks
+                    <span class="move-actions"
+                      ><button
+                        type="button"
+                        data-move-group="charged"
+                        data-selection="all"
+                        aria-label="Select all boss charged attacks"
+                      >
+                        All</button
+                      ><button
+                        type="button"
+                        data-move-group="charged"
+                        data-selection="none"
+                        aria-label="Clear boss charged attacks"
+                      >
+                        None
+                      </button></span
+                    >
+                  </legend>
+                  <div id="boss-charged-moves"></div>
+                </fieldset>
+              </div>
+              <p class="field-hint">
+                Both Pokémon types count; a second type can cancel a weakness.
+                <span id="moves-source-note">These learnable move pools may differ from the current raid.</span>
+              </p>
+            </fieldset>
+            <p id="moves-warning" class="field-hint data-warning" hidden></p>
+          </section>
+        </div>
+
+        <div class="results-column">
+          <section class="panel result-card" aria-labelledby="result-heading">
+            <div class="result-heading">
+              <h2 id="result-heading">Search string</h2>
+              <div class="language-picker">
+                <button id="language-button" class="language-trigger" type="button" role="combobox"
+                  aria-label="Search output language" aria-haspopup="listbox" aria-expanded="false" aria-controls="language-options">
+                  <span id="language-flag" aria-hidden="true"></span>
+                  <span id="language-badge" aria-hidden="true">ENG</span>
+                  <span class="language-chevron" aria-hidden="true"></span>
+                </button>
+                <div id="language-options" class="language-options" role="listbox" aria-label="Search output language" hidden></div>
+                <select id="output-language" aria-hidden="true" tabindex="-1" hidden></select>
+              </div>
+            </div>
+            <div class="result-meta">
+              <span id="character-count"></span>
+            </div>
+            <p
+              id="defense-status"
+              class="defense-status"
+              aria-live="polite"
+              hidden
+            ></p>
+            <p id="generation-error" class="error" role="alert" hidden></p>
+            <label class="sr-only" for="search-output"
+              >Generated Pokémon GO search string</label
+            >
+            <div id="output-field" class="output-field">
+              <button id="output-preview" class="output-preview" type="button"
+                aria-label="Show full search string" aria-expanded="false" aria-controls="search-output">
+                <span id="output-preview-text"></span>
+                <span class="language-chevron" aria-hidden="true"></span>
+              </button>
+              <textarea
+                id="search-output"
+                rows="5"
+                readonly
+                spellcheck="false"
+                placeholder="No restrictions — leave the in-game search empty."
+              ></textarea>
+            </div>
+            <button id="copy-button" class="copy-button" type="button">
+              Copy search string
+            </button>
+            <p
+              id="copy-status"
+              class="copy-status"
+              role="status"
+              aria-live="polite"
+            ></p>
+          </section>
+          <section class="panel matchup-card" aria-labelledby="matchup-heading">
+            <h2 id="matchup-heading" class="sr-only">Attack type matchup</h2>
+            <button id="matchup-toggle" class="matchup-toggle" type="button"
+              aria-label="Show only super-effective types" aria-expanded="true" aria-controls="matchup-groups">
+              <span class="language-chevron" aria-hidden="true"></span>
+            </button>
+            <div id="matchup-groups"></div>
+          </section>
+          <p class="search-notes">
+            Match the output language to your game. Search grouping and unusual move
+            typing still need an in-game check.
+            <a
+              href="https://niantic.helpshift.com/hc/en/6-pokemon-go/faq/1486-searching-filtering-your-pokemon-inventory/"
+              target="_blank"
+              rel="noreferrer"
+              >Search reference</a
+            >
+          </p>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <p id="data-credit">
+        Data from
+        <a
+          href="https://pogoapi.net/documentation/"
+          target="_blank"
+          rel="noreferrer"
+          >PoGoAPI</a
+        >.
+      </p>
+      <p class="fan-notice">Unofficial fan tool.</p>
+      <div class="install-controls">
+        <span id="offline-status" role="status" hidden></span
+        ><button id="install-button" class="text-button" type="button" hidden>
+          Install app</button
+        ><button id="update-app" class="text-button" type="button" hidden>
+          Update &amp; reload
+        </button>
+      </div>
+    </footer>
+    <noscript
+      ><p class="error">
+        Enable JavaScript to build your raid search string.
+      </p></noscript
+    >
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

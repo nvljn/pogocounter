@@ -1,0 +1,25 @@
+{
+  "name": "pogocounter",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "engines": {
+    "node": ">=22.18.0"
+  },
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "tsc --noEmit && vite build && node scripts/build-pwa.ts",
+    "preview": "vite preview --host 127.0.0.1",
+    "update-data": "node scripts/update-data.ts",
+    "update-languages": "node scripts/update-languages.ts",
+    "update-previews": "node scripts/update-previews.ts",
+    "update-flags": "node scripts/update-flags.ts",
+    "update-type-icons": "node scripts/update-type-icons.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "sharp": "^0.35.5",
+    "typescript": "^5.9.0",
+    "vite": "^7.0.0"
+  }
+}

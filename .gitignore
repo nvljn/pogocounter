@@ -1,0 +1,32 @@
+# Dependencies and generated builds
+/node_modules/
+/dist/
+*.tsbuildinfo
+
+# Download caches and local QA artifacts (keep normalized data and public assets)
+/tests/
+/.cache/
+/.qa/
+/test-results/
+/playwright-report/
+/blob-report/
+/coverage/
+.vite/
+
+# Local configuration and credentials
+.env
+.env.*
+!.env.example
+*.local
+
+# Logs, temporary files and editor/OS state
+*.log
+*.tmp
+*.swp
+*.swo
+*~
+/.idea/
+/.vscode/
+.DS_Store
+Thumbs.db
+Desktop.ini

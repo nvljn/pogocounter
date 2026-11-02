@@ -1,0 +1,574 @@
+{
+  "metadata": {
+    "source": "Pokémon GO game text extracted by sora10pls/holoholo-text",
+    "updatedAt": "2026-11-02T12:04:24.764Z",
+    "revision": "2e4a8911daa6b990bc1c01aec6d1c9e361956226",
+    "sources": {
+      "en": {
+        "url": "https://raw.githubusercontent.com/sora10pls/holoholo-text/2e4a8911daa6b990bc1c01aec6d1c9e361956226/Release/English/en-us_raw.json",
+        "sha256": "574650b14dd300f8a8f7984f0c3c7bf9ccbaf7ef43054433fd0d9fc90ccb86d7"
+      },
+      "de": {
+        "url": "https://raw.githubusercontent.com/sora10pls/holoholo-text/2e4a8911daa6b990bc1c01aec6d1c9e361956226/Release/German/de-de_raw.json",
+        "sha256": "72b7d954b7560ee1dd7433612e00ae6402112ab2c39bf7a7019bda715b79ae1b"
+      },
+      "fr": {
+        "url": "https://raw.githubusercontent.com/sora10pls/holoholo-text/2e4a8911daa6b990bc1c01aec6d1c9e361956226/Release/French/fr-fr_raw.json",
+        "sha256": "3d6c744daeb8d97d756851348357d4df44058f52c9465ef78aae3d25d1a4a989"
+      },
+      "es": {
+        "url": "https://raw.githubusercontent.com/sora10pls/holoholo-text/2e4a8911daa6b990bc1c01aec6d1c9e361956226/Release/Spanish/es-es_raw.json",
+        "sha256": "9f60f3e452f23a46af128de44f2e1d7709023cdf2939e018f958eff9611b4f8c"
+      },
+      "it": {
+        "url": "https://raw.githubusercontent.com/sora10pls/holoholo-text/2e4a8911daa6b990bc1c01aec6d1c9e361956226/Release/Italian/it-it_raw.json",
+        "sha256": "2f5c7c001fb5cfe11fd92135ecdabb7e081873de9dd20277cef76ad1c1490907"
+      },
+      "es-MX": {
+        "url": "https://raw.githubusercontent.com/sora10pls/holoholo-text/2e4a8911daa6b990bc1c01aec6d1c9e361956226/Release/Latin%20American%20Spanish/es-mx_raw.json",
+        "sha256": "bc8351b2069f3a1aa6135764ebd47baf02c8224a80a55d147cb95c0f540e7d50"
+      },
+      "ja": {
+        "url": "https://raw.githubusercontent.com/sora10pls/holoholo-text/2e4a8911daa6b990bc1c01aec6d1c9e361956226/Release/Japanese/ja-jp_raw.json",
+        "sha256": "94e04448bd2e196cb6c07065fe2b799cfd7828648d9cf5cea109281856170c70"
+      },
+      "pt-BR": {
+        "url": "https://raw.githubusercontent.com/sora10pls/holoholo-text/2e4a8911daa6b990bc1c01aec6d1c9e361956226/Release/Brazilian%20Portuguese/pt-br_raw.json",
+        "sha256": "b06e739da6723977614d9b57e5fd4d62b3cdbc88b799aba50d3da2ae2ce22f6e"
+      },
+      "ko": {
+        "url": "https://raw.githubusercontent.com/sora10pls/holoholo-text/2e4a8911daa6b990bc1c01aec6d1c9e361956226/Release/Korean/ko-kr_raw.json",
+        "sha256": "849446e5319891f9273bca0b8ce7fdec2f0c5c39c4fc90c69a1a508bf68e1f66"
+      },
+      "zh-TW": {
+        "url": "https://raw.githubusercontent.com/sora10pls/holoholo-text/2e4a8911daa6b990bc1c01aec6d1c9e361956226/Release/Traditional%20Chinese/zh-tw_raw.json",
+        "sha256": "636fb4cc5a356d19ee54c7281a2413e3e6ad4ceef8e16fb08b401782fdd3158d"
+      },
+      "hi": {
+        "url": "https://raw.githubusercontent.com/sora10pls/holoholo-text/2e4a8911daa6b990bc1c01aec6d1c9e361956226/Release/Hindi/hi-in_raw.json",
+        "sha256": "f9d22b4c84c5d73b1ff0a311296a5df6850d1212aa2a4268a97b93f8a7f2b32d"
+      },
+      "id": {
+        "url": "https://raw.githubusercontent.com/sora10pls/holoholo-text/2e4a8911daa6b990bc1c01aec6d1c9e361956226/Release/Indonesian/id-id_raw.json",
+        "sha256": "a7c321d02489eaf198eb5040f6800ec6498622518bab1da2ff0b97c54a10003b"
+      },
+      "tr": {
+        "url": "https://raw.githubusercontent.com/sora10pls/holoholo-text/2e4a8911daa6b990bc1c01aec6d1c9e361956226/Release/Turkish/tr-tr_raw.json",
+        "sha256": "0d5cdfc2779349ea66f3bba531a8ec1523048ba5d9250c1469adebaaa78a05fe"
+      },
+      "ru": {
+        "url": "https://raw.githubusercontent.com/sora10pls/holoholo-text/2e4a8911daa6b990bc1c01aec6d1c9e361956226/Release/Russian/ru-ru_raw.json",
+        "sha256": "fa0e06bd738142d73000a8f3d2e7e5f5a8fe7b1e41b99d4159f2167adb78c23b"
+      },
+      "th": {
+        "url": "https://raw.githubusercontent.com/sora10pls/holoholo-text/2e4a8911daa6b990bc1c01aec6d1c9e361956226/Release/Thai/th-th_raw.json",
+        "sha256": "f076c31669b9f50f90b411ad4901948c23038da290993d632b216f1d8131002b"
+      }
+    },
+    "overrides": {
+      "ja": {
+        "defender": {
+          "term": "防衛",
+          "source": "https://niantic.helpshift.com/hc/ja/6-pokemon-go/faq/1486-searching-filtering-your-pokemon-inventory/"
+        }
+      }
+    }
+  },
+  "languages": [
+    {
+      "code": "en",
+      "badge": "ENG",
+      "name": "English",
+      "types": {
+        "Bug": "bug",
+        "Dark": "dark",
+        "Dragon": "dragon",
+        "Electric": "electric",
+        "Fairy": "fairy",
+        "Fighting": "fighting",
+        "Fire": "fire",
+        "Flying": "flying",
+        "Ghost": "ghost",
+        "Grass": "grass",
+        "Ground": "ground",
+        "Ice": "ice",
+        "Normal": "normal",
+        "Poison": "poison",
+        "Psychic": "psychic",
+        "Rock": "rock",
+        "Steel": "steel",
+        "Water": "water"
+      },
+      "keywords": {
+        "cp": "cp",
+        "hp": "hp",
+        "shadow": "shadow",
+        "defender": "defender",
+        "dynamax": "dynamax",
+        "gigantamax": "gigantamax"
+      }
+    },
+    {
+      "code": "de",
+      "badge": "GER",
+      "name": "Deutsch",
+      "types": {
+        "Bug": "käfer",
+        "Dark": "unlicht",
+        "Dragon": "drache",
+        "Electric": "elektro",
+        "Fairy": "fee",
+        "Fighting": "kampf",
+        "Fire": "feuer",
+        "Flying": "flug",
+        "Ghost": "geist",
+        "Grass": "pflanze",
+        "Ground": "boden",
+        "Ice": "eis",
+        "Normal": "normal",
+        "Poison": "gift",
+        "Psychic": "psycho",
+        "Rock": "gestein",
+        "Steel": "stahl",
+        "Water": "wasser"
+      },
+      "keywords": {
+        "cp": "wp",
+        "hp": "kp",
+        "shadow": "crypto",
+        "defender": "verteidiger",
+        "dynamax": "dynamax",
+        "gigantamax": "gigadynamax"
+      }
+    },
+    {
+      "code": "fr",
+      "badge": "FRA",
+      "name": "Français",
+      "types": {
+        "Bug": "insecte",
+        "Dark": "ténèbres",
+        "Dragon": "dragon",
+        "Electric": "électrik",
+        "Fairy": "fée",
+        "Fighting": "combat",
+        "Fire": "feu",
+        "Flying": "vol",
+        "Ghost": "spectre",
+        "Grass": "plante",
+        "Ground": "sol",
+        "Ice": "glace",
+        "Normal": "normal",
+        "Poison": "poison",
+        "Psychic": "psy",
+        "Rock": "roche",
+        "Steel": "acier",
+        "Water": "eau"
+      },
+      "keywords": {
+        "cp": "pc",
+        "hp": "pv",
+        "shadow": "obscur",
+        "defender": "défenseur",
+        "dynamax": "dynamax",
+        "gigantamax": "gigamax"
+      }
+    },
+    {
+      "code": "es",
+      "badge": "ESP",
+      "name": "Español",
+      "types": {
+        "Bug": "bicho",
+        "Dark": "siniestro",
+        "Dragon": "dragón",
+        "Electric": "eléctrico",
+        "Fairy": "hada",
+        "Fighting": "lucha",
+        "Fire": "fuego",
+        "Flying": "volador",
+        "Ghost": "fantasma",
+        "Grass": "planta",
+        "Ground": "tierra",
+        "Ice": "hielo",
+        "Normal": "normal",
+        "Poison": "veneno",
+        "Psychic": "psíquico",
+        "Rock": "roca",
+        "Steel": "acero",
+        "Water": "agua"
+      },
+      "keywords": {
+        "cp": "pc",
+        "hp": "ps",
+        "shadow": "oscuro",
+        "defender": "defensor",
+        "dynamax": "dinamax",
+        "gigantamax": "gigamax"
+      }
+    },
+    {
+      "code": "es-MX",
+      "badge": "LAT",
+      "name": "Español (Latinoamérica)",
+      "types": {
+        "Bug": "insecto",
+        "Dark": "siniestro",
+        "Dragon": "dragón",
+        "Electric": "eléctrico",
+        "Fairy": "hada",
+        "Fighting": "pelea",
+        "Fire": "fuego",
+        "Flying": "volador",
+        "Ghost": "fantasma",
+        "Grass": "planta",
+        "Ground": "tierra",
+        "Ice": "hielo",
+        "Normal": "normal",
+        "Poison": "veneno",
+        "Psychic": "psíquico",
+        "Rock": "roca",
+        "Steel": "acero",
+        "Water": "agua"
+      },
+      "keywords": {
+        "cp": "pc",
+        "hp": "ps",
+        "shadow": "oscuro",
+        "defender": "defensor",
+        "dynamax": "dinamax",
+        "gigantamax": "gigamax"
+      }
+    },
+    {
+      "code": "it",
+      "badge": "ITA",
+      "name": "Italiano",
+      "types": {
+        "Bug": "coleottero",
+        "Dark": "buio",
+        "Dragon": "drago",
+        "Electric": "elettro",
+        "Fairy": "folletto",
+        "Fighting": "lotta",
+        "Fire": "fuoco",
+        "Flying": "volante",
+        "Ghost": "spettro",
+        "Grass": "erba",
+        "Ground": "terra",
+        "Ice": "ghiaccio",
+        "Normal": "normale",
+        "Poison": "veleno",
+        "Psychic": "psico",
+        "Rock": "roccia",
+        "Steel": "acciaio",
+        "Water": "acqua"
+      },
+      "keywords": {
+        "cp": "pl",
+        "hp": "ps",
+        "shadow": "ombra",
+        "defender": "difensore",
+        "dynamax": "dynamax",
+        "gigantamax": "gigamax"
+      }
+    },
+    {
+      "code": "pt-BR",
+      "badge": "POR",
+      "name": "Português (Brasil)",
+      "types": {
+        "Bug": "inseto",
+        "Dark": "sombrio",
+        "Dragon": "dragão",
+        "Electric": "elétrico",
+        "Fairy": "fada",
+        "Fighting": "lutador",
+        "Fire": "fogo",
+        "Flying": "voador",
+        "Ghost": "fantasma",
+        "Grass": "planta",
+        "Ground": "terrestre",
+        "Ice": "gelo",
+        "Normal": "normal",
+        "Poison": "venenoso",
+        "Psychic": "psíquico",
+        "Rock": "pedra",
+        "Steel": "aço",
+        "Water": "água"
+      },
+      "keywords": {
+        "cp": "pc",
+        "hp": "ps",
+        "shadow": "sombroso",
+        "defender": "defensor",
+        "dynamax": "dinamax",
+        "gigantamax": "gigamax"
+      }
+    },
+    {
+      "code": "ja",
+      "badge": "JPN",
+      "name": "日本語",
+      "types": {
+        "Bug": "むし",
+        "Dark": "あく",
+        "Dragon": "ドラゴン",
+        "Electric": "でんき",
+        "Fairy": "フェアリー",
+        "Fighting": "かくとう",
+        "Fire": "ほのお",
+        "Flying": "ひこう",
+        "Ghost": "ゴースト",
+        "Grass": "くさ",
+        "Ground": "じめん",
+        "Ice": "こおり",
+        "Normal": "ノーマル",
+        "Poison": "どく",
+        "Psychic": "エスパー",
+        "Rock": "いわ",
+        "Steel": "はがね",
+        "Water": "みず"
+      },
+      "keywords": {
+        "cp": "cp",
+        "hp": "hp",
+        "shadow": "しゃどう",
+        "defender": "防衛",
+        "dynamax": "だいまっくす",
+        "gigantamax": "きょだいまっくす"
+      }
+    },
+    {
+      "code": "ko",
+      "badge": "KOR",
+      "name": "한국어",
+      "types": {
+        "Bug": "벌레",
+        "Dark": "악",
+        "Dragon": "드래곤",
+        "Electric": "전기",
+        "Fairy": "페어리",
+        "Fighting": "격투",
+        "Fire": "불꽃",
+        "Flying": "비행",
+        "Ghost": "고스트",
+        "Grass": "풀",
+        "Ground": "땅",
+        "Ice": "얼음",
+        "Normal": "노말",
+        "Poison": "독",
+        "Psychic": "에스퍼",
+        "Rock": "바위",
+        "Steel": "강철",
+        "Water": "물"
+      },
+      "keywords": {
+        "cp": "cp",
+        "hp": "hp",
+        "shadow": "그림자",
+        "defender": "방어 포켓몬",
+        "dynamax": "다이맥스",
+        "gigantamax": "거다이 맥스"
+      }
+    },
+    {
+      "code": "zh-TW",
+      "badge": "ZHT",
+      "name": "繁體中文",
+      "types": {
+        "Bug": "蟲",
+        "Dark": "惡",
+        "Dragon": "龍",
+        "Electric": "電",
+        "Fairy": "妖精",
+        "Fighting": "格鬥",
+        "Fire": "火",
+        "Flying": "飛行",
+        "Ghost": "幽靈",
+        "Grass": "草",
+        "Ground": "地面",
+        "Ice": "冰",
+        "Normal": "一般",
+        "Poison": "毒",
+        "Psychic": "超能力",
+        "Rock": "岩石",
+        "Steel": "鋼",
+        "Water": "水"
+      },
+      "keywords": {
+        "cp": "cp",
+        "hp": "hp",
+        "shadow": "暗影",
+        "defender": "防禦者",
+        "dynamax": "極巨化",
+        "gigantamax": "超極巨化"
+      }
+    },
+    {
+      "code": "hi",
+      "badge": "HIN",
+      "name": "हिन्दी",
+      "types": {
+        "Bug": "बग",
+        "Dark": "डार्क",
+        "Dragon": "ड्रैगन",
+        "Electric": "इलेक्ट्रिक",
+        "Fairy": "फ़ेरी",
+        "Fighting": "फ़ाइटिंग",
+        "Fire": "फ़ायर",
+        "Flying": "फ़्लाइंग",
+        "Ghost": "घोस्ट",
+        "Grass": "ग्रास",
+        "Ground": "ग्राउंड",
+        "Ice": "आइस",
+        "Normal": "नॉर्मल",
+        "Poison": "पॉइज़न",
+        "Psychic": "साइकिक",
+        "Rock": "रॉक",
+        "Steel": "स्टील",
+        "Water": "वॉटर"
+      },
+      "keywords": {
+        "cp": "cp",
+        "hp": "hp",
+        "shadow": "शैडो",
+        "defender": "डिफ़ेंडर",
+        "dynamax": "डायनामैक्स",
+        "gigantamax": "जायगैंटामैक्स"
+      }
+    },
+    {
+      "code": "id",
+      "badge": "IND",
+      "name": "Bahasa Indonesia",
+      "types": {
+        "Bug": "serangga",
+        "Dark": "kegelapan",
+        "Dragon": "naga",
+        "Electric": "listrik",
+        "Fairy": "peri",
+        "Fighting": "petarung",
+        "Fire": "api",
+        "Flying": "terbang",
+        "Ghost": "hantu",
+        "Grass": "daun",
+        "Ground": "tanah",
+        "Ice": "es",
+        "Normal": "normal",
+        "Poison": "racun",
+        "Psychic": "psychic",
+        "Rock": "bebatuan",
+        "Steel": "logam",
+        "Water": "air"
+      },
+      "keywords": {
+        "cp": "cp",
+        "hp": "hp",
+        "shadow": "bayangan",
+        "defender": "pelindung",
+        "dynamax": "dynamax",
+        "gigantamax": "gigantamax"
+      }
+    },
+    {
+      "code": "ru",
+      "badge": "RUS",
+      "name": "Русский",
+      "types": {
+        "Bug": "насекомое",
+        "Dark": "тёмный",
+        "Dragon": "дракон",
+        "Electric": "электро",
+        "Fairy": "фея",
+        "Fighting": "боевой",
+        "Fire": "огонь",
+        "Flying": "летающий",
+        "Ghost": "привидение",
+        "Grass": "трава",
+        "Ground": "земля",
+        "Ice": "лёд",
+        "Normal": "обычный",
+        "Poison": "яд",
+        "Psychic": "психо",
+        "Rock": "камень",
+        "Steel": "сталь",
+        "Water": "вода"
+      },
+      "keywords": {
+        "cp": "бс",
+        "hp": "ож",
+        "shadow": "теневые",
+        "defender": "защитники",
+        "dynamax": "динамакс",
+        "gigantamax": "гигантамакс"
+      }
+    },
+    {
+      "code": "th",
+      "badge": "THA",
+      "name": "ไทย",
+      "types": {
+        "Bug": "แมลง",
+        "Dark": "ความมืด",
+        "Dragon": "มังกร",
+        "Electric": "ไฟฟ้า",
+        "Fairy": "แฟรี่",
+        "Fighting": "ต่อสู้",
+        "Fire": "ไฟ",
+        "Flying": "บิน",
+        "Ghost": "ผี",
+        "Grass": "หญ้า",
+        "Ground": "ดิน",
+        "Ice": "น้ำแข็ง",
+        "Normal": "ปกติ",
+        "Poison": "พิษ",
+        "Psychic": "พลังจิต",
+        "Rock": "หิน",
+        "Steel": "โลหะ",
+        "Water": "น้ำ"
+      },
+      "keywords": {
+        "cp": "cp",
+        "hp": "hp",
+        "shadow": "ชาโดว์",
+        "defender": "ป้องกันยิม",
+        "dynamax": "ไดแมกซ์",
+        "gigantamax": "กิกะแมกซ์"
+      }
+    },
+    {
+      "code": "tr",
+      "badge": "TUR",
+      "name": "Türkçe",
+      "types": {
+        "Bug": "böcek",
+        "Dark": "karanlık",
+        "Dragon": "ejderha",
+        "Electric": "elektrik",
+        "Fairy": "peri",
+        "Fighting": "dövüşçü",
+        "Fire": "ateş",
+        "Flying": "uçan",
+        "Ghost": "hayalet",
+        "Grass": "bitki",
+        "Ground": "yer",
+        "Ice": "buz",
+        "Normal": "normal",
+        "Poison": "zehir",
+        "Psychic": "psişik",
+        "Rock": "kaya",
+        "Steel": "çelik",
+        "Water": "su"
+      },
+      "keywords": {
+        "cp": "dg",
+        "hp": "sp",
+        "shadow": "gölge",
+        "defender": "savunan",
+        "dynamax": "dinamaks",
+        "gigantamax": "gigantamaks"
+      }
+    }
+  ]
+}
