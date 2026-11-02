@@ -1,5 +1,7 @@
 # PoGO Counter Search String Builder
 
+Available at: [nvljn.github.io/pogocounter](https://nvljn.github.io/pogocounter/)
+
 ![PoGO Counter Search String Builder preview](docs/preview.png)
 
 Pick a boss, set attack/resistance and inventory filters, choose your game's language, then copy the result into Pokémon GO's storage search.
@@ -20,14 +22,6 @@ npm run build
 npm run preview
 ```
 
-## Host on GitHub Pages
-
-Set **Settings → Pages → Source → GitHub Actions**, then push to `main`. The included workflow builds and deploys automatically. For another branch, edit `.github/workflows/pages.yml`.
-
-Other static hosts: upload the contents of `dist/`. Use HTTPS. No backend required.
-
-Offline use works after the first successful online cache. Recently viewed thumbnails are cached; unseen images need a connection. No installation required.
-
 ## Update the data
 
 | Command | Updates |
@@ -38,15 +32,7 @@ Offline use works after the first successful online cache. Recently viewed thumb
 | `npm run update-flags` | Language flags |
 | `npm run update-type-icons` | Type icons |
 
-Run the relevant commands, commit changed files in `src/data/` and `public/`, then push. Deployment uses those files; data updates are manual.
-
-## Limits
-
-- Filters moves and typing; doesn't rank raid damage.
-- Boss move pools may differ from actual raid moves. Mega/Primal forms use regular-species move pools.
-- Checks regular attacks, including either charged slot. Max Moves and Mega bonus attacks aren't supported. Unresolved move types are flagged.
-
-Search syntax assumes `!` → `,` (OR) → `&` (AND) precedence, without parentheses. Verify mixed clauses, locked second charged slots, localized keywords and `!<fire` (not weak to Fire) in-game; automated checks can't verify the game's parser.
+Move data lists learnable attacks, not confirmed raid/event movesets. Select the boss moves you observed in the raid.
 
 ## Data and artwork
 
